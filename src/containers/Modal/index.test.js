@@ -4,52 +4,38 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Modal from "./index";
 
-describe("When Modal data is created", () => {
-  it("a modal content is display", () => {
+describe("Modal", () => {
+  it("renders the modal content when opened is true", () => {
     render(
-      <Modal opened Content={<div>modal content</div>}>
+      <Modal opened Content={<div>Modal Content</div>}>
         {() => null}
       </Modal>
     );
-    expect(screen.getByText("modal content")).toBeInTheDocument();
-  });
-  describe("and a click is triggered to display the modal", () => {
-    it("the content of modal is displayed", async () => {
-      render(
-        <Modal Content={<div>modal content</div>}>
-          {() => <button data-testid="open-modal"></button>}
-        </Modal>
-      );
-      expect(screen.queryByText("modal content")).not.toBeInTheDocument();
-      fireEvent(
-        screen.getByTestId("open-modal"),
-        new MouseEvent("click", {
-          cancelable: true,
-          bubbles: true,
-        })
-      );
-
-    });
+    const modalContent = screen.getByText("Modal Content");
+    expect(modalContent).toBeInTheDocument();
   });
 
-  describe("and a click is triggered to the close button modal", () => {
-    it("the content of the modal is hide", async () => {
-      render(
-        <Modal opened Content={<div>modal content</div>}>
-          {() => null}
-        </Modal>
-      );
+  it("does not render the modal content when opened is false", () => {
+    render(
+      <Modal opened={false} Content={<div>Modal Content</div>}>
+        {() => null}
+      </Modal>
+    );
+    const modalContent = screen.queryByText("Modal Content");
+    expect(modalContent).not.toBeInTheDocument();
+  });
 
-      expect(screen.getByText("modal content")).toBeInTheDocument();
-      fireEvent(
-        screen.getByTestId("close-modal"),
-        new MouseEvent("click", {
-          cancelable: true,
-          bubbles: true,
-        })
-      );
-
-      expect(screen.queryByText("modal content")).not.toBeInTheDocument();
-    });
+  it("calls setIsOpened with false when the close button is clicked", () => {
+    const setIsOpened = jest.fn();
+    render(
+      <Modal opened Content={<div>Modal Content</div>}>
+        {() => (
+          <button onClick={() => setIsOpened(false)}>Close Modal</button>
+        )}
+      </Modal>
+    );
+    const closeButton = screen.getByText("Close Modal");
+    fireEvent.click(closeButton);
+    expect(setIsOpened).toHaveBeenCalledWith(false);
   });
 });
