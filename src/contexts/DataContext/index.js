@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import {
   createContext,
-  useCallback,
   useContext,
   useEffect,
   useState,
@@ -19,17 +18,27 @@ export const api = {
 export const DataProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
-  const getData = useCallback(async () => {
-    try {
-      setData(await api.loadData());
-    } catch (err) {
-      setError(err);
-    }
-  }, []);
+  const [loading, setLoading] = useState(true);
+
+
   useEffect(() => {
-    if (data) return;
-    getData();
-  });
+    const getData = async () => {
+      try {
+        const newData = await api.loadData();
+        setData(newData);
+        setLoading(false);
+      } catch (err) {
+        setError(err);
+        setLoading(false);
+      }
+    };
+
+    if (!data) {
+      getData();
+    }
+  }, [data]);
+
+
   
   return (
     <DataContext.Provider
@@ -37,6 +46,7 @@ export const DataProvider = ({ children }) => {
       value={{
         data,
         error,
+        loading,
       }}
     >
       {children}
