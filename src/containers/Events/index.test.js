@@ -47,7 +47,7 @@ describe("When Events is created", () => {
     );
     await screen.findByText("avril");
   });
-  describe("and an error occured", () => {
+  describe("and an error occurred", () => {
     it("an error message is displayed", async () => {
       api.loadData = jest.fn().mockRejectedValue();
       render(
@@ -55,7 +55,7 @@ describe("When Events is created", () => {
           <Events />
         </DataProvider>
       );
-      expect(await screen.findByText("An error occured")).toBeInTheDocument();
+      expect(await screen.findByText("An error occurred")).toBeInTheDocument();
     });
   });
   describe("and we select a category", () => {

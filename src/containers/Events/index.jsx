@@ -9,15 +9,26 @@ import "./style.css";
 
 const PER_PAGE = 9;
 
+/**
+ * Component representing a list of events.
+ *
+ * @returns {JSX.Element} The EventList component.
+ */
 const EventList = () => {
   const { data, error } = useData();
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+  
+  
+  /**
+   * Filtered events based on the selected type and pagination.
+   * @type {Array}
+   */
   const filteredEvents = (
     (!type
       ? data?.events
-      : data?.events) || []
-  ).filter((event, index) => {
+      : data?.events.filter(event => event.type === type)) || []
+  ).filter((_, index) => {
     if (
       (currentPage - 1) * PER_PAGE <= index &&
       PER_PAGE * currentPage > index
@@ -26,15 +37,22 @@ const EventList = () => {
     }
     return false;
   });
+
+
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);
   };
+
+
+
   const pageNumber = Math.floor((filteredEvents?.length || 0) / PER_PAGE) + 1;
   const typeList = new Set(data?.events.map((event) => event.type));
+
+
   return (
     <>
-      {error && <div>An error occured</div>}
+      {error && <div>An error occurred</div>}
       {data === null ? (
         "loading"
       ) : (
@@ -42,7 +60,7 @@ const EventList = () => {
           <h3 className="SelectTitle">Catégories</h3>
           <Select
             selection={Array.from(typeList)}
-            onChange={(value) => (value ? changeType(value) : changeType(null))}
+            onChange={changeType}
           />
           <div id="events" className="ListContainer">
             {filteredEvents.map((event) => (
@@ -58,6 +76,7 @@ const EventList = () => {
                 )}
               </Modal>
             ))}
+
           </div>
           <div className="Pagination">
             {[...Array(pageNumber || 0)].map((_, n) => (
