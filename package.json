@@ -18,6 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:e2e": "cypress open",
     "lint": "eslint .eslintrc.js ./src",
     "format": "prettier ./src --write"
   },
@@ -40,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^13.6.4",
     "eslint": "^8.14.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
