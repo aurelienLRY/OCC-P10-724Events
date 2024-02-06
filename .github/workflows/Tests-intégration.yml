@@ -19,15 +19,15 @@ jobs:
           node-version: 14
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install
 
       - name: Run tests
-        run: yarn test
+        run: npm test
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
         - name: Deploy to GitHub Pages
           with:
           token: ${{ secrets.ACTION_DEPLOY_ACCESS_TOKEN}}
-          run: yarn deploy
+          run: npm deploy
