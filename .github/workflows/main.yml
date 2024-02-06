@@ -35,4 +35,4 @@ jobs:
         with:
         token: ${{ secrets.ACTION_DEPLOY_ACCESS_TOKEN}}
           branch: gh-pages
-          folder: { build }
+          folder:  build 
