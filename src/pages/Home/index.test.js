@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import { DataProvider, useData } from "../../contexts/DataContext";
 import Home from "./index";
 
 describe("When Form is created", () => {
@@ -22,33 +23,28 @@ describe("When Form is created", () => {
       );
       await screen.findByText("En cours");
       await screen.findByText("Message envoyé !");
+      const modal = await screen.findByTestId("modal");
+      expect(modal).toBeInTheDocument();
     });
   });
-
 });
-
 
 describe("When a page is created", () => {
   it("a list of events is displayed", () => {
-    // to implement
-  })
-
+    render(<Home />);
+  });
 
   it("a list a people is displayed", () => {
     // to implement
-  })
-
+  });
 
   it("a footer is displayed", () => {
-    // to implement
-  })
-
-  
+    render(<Home />);
+    const footer = screen.getByTestId("footer");
+    expect(footer).toBeInTheDocument();
+  });
 
   it("an event card, with the last event, is displayed", () => {
-    // to implement
-  })
 
-
-
+  });
 });
