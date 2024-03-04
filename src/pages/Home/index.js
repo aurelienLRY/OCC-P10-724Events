@@ -18,7 +18,7 @@ const Page = () => (
     <header>
       <Menu />
     </header>
-    <main>
+    <main data-testid="homePage">
       <section className="SliderContainer">
         <Slider />
       </section>
