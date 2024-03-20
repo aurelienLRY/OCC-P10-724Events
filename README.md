@@ -1,4 +1,5 @@
-![repository-Projet8](https://github.com/aurelienLRY/OCC-P8-KASA/assets/83220559/d43ba35c-7a61-417a-801e-4d5987bd4086)
+![repository-Projet10](https://github.com/aurelienLRY/OCC-P10-724Events/assets/83220559/12d3b96e-5d08-4717-b193-a6fd70d7f691)
+
 
 
 # Projet 10 - Débuggez le site d'une agence d'événementiel
@@ -23,7 +24,7 @@ Vous devrez également compléter le cahier de recette. Ce document détaillera 
 
 ## Livrables
 Le site web : 
-### [Découvrir la page](#)
+### [Découvrir la page](https://aurelienlry.github.io/OCC-P10-724Events/)
 
 
 ## Calendrier
