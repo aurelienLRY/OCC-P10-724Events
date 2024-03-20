@@ -32,16 +32,20 @@ Le projet prévois 60 heures et se déroulera du 23 janvier 2024 au 19 février 
 
 ### Temps de développement actuelle : 
 [![wakatime](https://wakatime.com/badge/user/dfdaf0d3-5ae8-4997-92c1-563d24f5d7d4/project/018d5126-a594-4206-a44e-514a1935ec79.svg)](https://wakatime.com/badge/user/dfdaf0d3-5ae8-4997-92c1-563d24f5d7d4/project/018d5126-a594-4206-a44e-514a1935ec79)
+
+
 ## Soutenance 
 ### Présentation des livrables (15 minutes) 
-- Présentation des différentes pages, avec la navigation entre elles, et les interactions avec tous les éléments interactifs. 
-- Parcours des fichiers de code avec le mentor. Mise en avant des différents composants React. 
-
-### Discussion (10 minutes) 
-- Le mentor, qui joue le rôle du CTO, posera des questions sur la méthodologie adoptée et sur les livrables.
-- Le mentor challengera au maximum les décisions techniques que vous avez prises ; il faudra donc que vous soyez capable de les justifier, et de défendre votre travail. 
+- Vous présentez le site via votre navigateur pour montrer son bon fonctionnement.
+- Vous présentez votre code débuggé en expliquant comment vous avez utilisé les tests unitaires pour vous aider à identifier et corriger les problèmes.
+- Vous présentez votre cahier de recette en expliquant chacun des scénarios de tests décrits. Durant la démonstration vous présenterez la réalisation de 2 des tests fonctionnels.
+## Discussion (10 minutes) 
+- Toujours dans le rôle de Jean-Baptiste, l’évaluateur vous challengera sur les points suivants :
+- la méthode employée pour le débuggage ;
+- le choix de l’implémentation du code buggé ;
+- la méthode de rédaction du cahier de recette.
 ### Debrief (5 minutes)
-- À la fin de la soutenance, l'évaluateur arrêtera de jouer le rôle du CTO pour vous permettre de débriefer ensemble.
+- À la fin de la soutenance, l'évaluateur arrêtera de jouer le rôle du directeur Marketing de l’agence pour vous permettre de débriefer ensemble.
 
 ## Évaluation
 ## Remarques sur l'évaluation
